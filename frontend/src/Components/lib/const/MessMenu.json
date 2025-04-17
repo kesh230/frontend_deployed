@@ -1,0 +1,340 @@
+[
+    {
+      "day": "Monday",
+      "meals": [
+        {
+          "time": "Breakfast",
+          "items": [
+            "Tea and Coffee",
+            "Milk",
+            "Fruit",
+            "Eggs",
+            "Bread with Butter",
+            "Cornflakes"
+          ]
+        },
+        {
+          "time": "Lunch",
+          "items": [
+            "Tea and Coffee",
+            "Milk",
+            "Fruit",
+            "Rice",
+            "Curry",
+            "Dal",
+            "Roti"
+          ]
+        },
+        {
+          "time": "Snacks",
+          "items": [
+            "Tea and Coffee",
+            "Milk",
+            "Fruit",
+            "Samosa",
+            "Pakora",
+            "Sandwich"
+          ]
+        },
+        {
+          "time": "Dinner",
+          "items": [
+            "Tea and Coffee",
+            "Milk",
+            "Fruit",
+            "Paneer",
+            "Chicken",
+            "Ice Cream"
+          ]
+        }
+      ]
+    },
+    {
+      "day": "Tuesday",
+      "meals": [
+        {
+          "time": "Breakfast",
+          "items": [
+            "Oatmeal",
+            "Juice",
+            "Banana",
+            "Boiled Eggs",
+            "Toast with Jam"
+          ]
+        },
+        {
+          "time": "Lunch",
+          "items": [
+            "Herbal Tea",
+            "Yogurt",
+            "Salad",
+            "Quinoa",
+            "Grilled Vegetables",
+            "Lentil Soup",
+            "Naan"
+          ]
+        },
+        {
+          "time": "Snacks",
+          "items": [
+            "Green Tea",
+            "Cheese Cubes",
+            "Apple Slices",
+            "Veggie Sticks",
+            "Hummus"
+          ]
+        },
+        {
+          "time": "Dinner",
+          "items": [
+            "Black Coffee",
+            "Milkshake",
+            "Mixed Fruits",
+            "Tofu Stir-Fry",
+            "Beef Stew",
+            "Sorbet"
+          ]
+        }
+      ]
+    },
+    {
+      "day": "Wednesday",
+      "meals": [
+        {
+          "time": "Breakfast",
+          "items": [
+            "Smoothie",
+            "Granola",
+            "Boiled Eggs",
+            "Toast",
+            "Orange Juice"
+          ]
+        },
+        {
+          "time": "Lunch",
+          "items": [
+            "Black Tea",
+            "Curd",
+            "Veg Biryani",
+            "Butter Chicken",
+            "Raita",
+            "Papad",
+            "Paratha"
+          ]
+        },
+        {
+          "time": "Snacks",
+          "items": [
+            "Latte",
+            "Trail Mix",
+            "Muffins",
+            "Spring Rolls",
+            "Fruit Salad"
+          ]
+        },
+        {
+          "time": "Dinner",
+          "items": [
+            "Herbal Tea",
+            "Fruit Punch",
+            "Veg Curry",
+            "Fish Fry",
+            "Rice Pudding"
+          ]
+        }
+      ]
+    },
+    {
+      "day": "Thursday",
+      "meals": [
+        {
+          "time": "Breakfast",
+          "items": [
+            "Pancakes",
+            "Maple Syrup",
+            "Scrambled Eggs",
+            "Bacon",
+            "Fruit Bowl"
+          ]
+        },
+        {
+          "time": "Lunch",
+          "items": [
+            "Espresso",
+            "Greek Yogurt",
+            "Chicken Salad",
+            "Mashed Potatoes",
+            "Steamed Broccoli",
+            "Garlic Bread",
+            "Chapati"
+          ]
+        },
+        {
+          "time": "Snacks",
+          "items": [
+            "Cappuccino",
+            "Bagel with Cream Cheese",
+            "Veggie Wraps",
+            "Nachos",
+            "Salsa"
+          ]
+        },
+        {
+          "time": "Dinner",
+          "items": [
+            "Green Tea",
+            "Berry Smoothie",
+            "Pasta Alfredo",
+            "Grilled Salmon",
+            "Roasted Vegetables",
+            "Cheesecake"
+          ]
+        }
+      ]
+    },
+    {
+      "day": "Friday",
+      "meals": [
+        {
+          "time": "Breakfast",
+          "items": [
+            "French Toast",
+            "Honey",
+            "Poached Eggs",
+            "Sausage Links",
+            "Mixed Berries"
+          ]
+        },
+        {
+          "time": "Lunch",
+          "items": [
+            "Americano",
+            "Cottage Cheese",
+            "Beef Lasagna",
+            "Caesar Salad",
+            "Breadsticks",
+            "Soup",
+            "Focaccia"
+          ]
+        },
+        {
+          "time": "Snacks",
+          "items": [
+            "Mocha",
+            "Pretzels",
+            "Cookies",
+            "Falafel Balls",
+            "Tzatziki Dip"
+          ]
+        },
+        {
+          "time": "Dinner",
+          "items": [
+            "Chai Latte",
+            "Mango Lassi",
+            "Vegetable Stir-Fry",
+            "Pork Chops",
+            "Brown Rice",
+            "Pudding"
+          ]
+        }
+      ]
+    },
+    {
+      "day": "Saturday",
+      "meals": [
+        {
+          "time": "Breakfast",
+          "items": [
+            "Waffles",
+            "Whipped Cream",
+            "Baked Beans",
+            "Hash Browns",
+            "Fresh Juice"
+          ]
+        },
+        {
+          "time": "Lunch",
+          "items": [
+            "Latte",
+            "Fruit Parfait",
+            "Shrimp Scampi",
+            "Veggie Wrap",
+            "Quinoa Salad",
+            "Minestrone Soup",
+            "Bread Rolls"
+          ]
+        },
+        {
+          "time": "Snacks",
+          "items": [
+            "Iced Tea",
+            "Granola Bars",
+            "Sushi Rolls",
+            "Edamame",
+            "Pickles"
+          ]
+        },
+        {
+          "time": "Dinner",
+          "items": [
+            "Matcha Tea",
+            "Protein Shake",
+            "Lamb Curry",
+            "Basmati Rice",
+            "Naan Bread",
+            "Gelato"
+          ]
+        }
+      ]
+    },
+    {
+      "day": "Sunday",
+      "meals": [
+        {
+          "time": "Breakfast",
+          "items": [
+            "Egg Benedict",
+            "Sausage Patties",
+            "Fresh Fruit",
+            "Hash Browns",
+            "Smoothie"
+          ]
+        },
+        {
+          "time": "Lunch",
+          "items": [
+            "Irish Coffee",
+            "Spinach Salad",
+            "BBQ Ribs",
+            "Mac and Cheese",
+            "Coleslaw",
+            "Baked Potato",
+            "Garlic Knots"
+          ]
+        },
+        {
+          "time": "Snacks",
+          "items": [
+            "Fruit Infused Water",
+            "Veggie Chips",
+            "Brownie Bites",
+            "Chicken Nuggets",
+            "Ranch Dip"
+          ]
+        },
+        {
+          "time": "Dinner",
+          "items": [
+            "Black Tea",
+            "Vanilla Milkshake",
+            "Steak",
+            "Grilled Vegetables",
+            "Potato Gratin",
+            "Cheesecake"
+          ]
+        }
+      ]
+    }
+  ]
+  

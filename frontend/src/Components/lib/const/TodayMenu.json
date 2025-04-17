@@ -1,0 +1,26 @@
+[
+    {
+        "time" : "Breakfast",
+        "item1" : "Tea and Coffee",
+        "item2" : "Milk",
+        "item3" : "Fruit"
+    },
+    {
+        "time" : "Lunch",
+        "item1" : "Tea and Coffee",
+        "item2" : "Milk",
+        "item3" : "Fruit"
+    },
+    {
+        "time" : "Snacks",
+        "item1" : "Tea and Coffee",
+        "item2" : "Milk",
+        "item3" : "Fruit"
+    },
+    {
+        "time" : "Dinner",
+        "item1" : "Tea and Coffee",
+        "item2" : "Milk",
+        "item3" : "Fruit"
+    }
+]

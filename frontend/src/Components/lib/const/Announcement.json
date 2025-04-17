@@ -1,0 +1,22 @@
+[
+    {
+        "name" : "Alert",
+        "message" : "Mosquito smoke is started in hostel in 15 minute every student are requested to leave the hostel for sometime"
+    },
+    {
+        "name" : "Laundry update",
+        "message" : "Laundry guy is available now and will be present in hostel till 9:00 pm"
+    },
+    {
+        "name" : "Menu update",
+        "message" : "Today, There will be Pastry in place of Gulab jamum in dinner"
+    },
+    {
+        "name" : "Schedule",
+        "message" : "All students are requested to go to auditorium for inaugural ceremony"
+    },
+    {
+        "name" : "Alert",
+        "message" : "Mosquito smoke is started in hostel in 15 minute every student are requested to leave the hostel for sometime"
+    }
+]
