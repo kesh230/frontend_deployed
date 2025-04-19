@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
+import BASE_URL from '../config';
 
 const FoodDetails = () => {
   const { foodItem } = useParams();
@@ -15,8 +16,8 @@ const FoodDetails = () => {
       try {
         setLoading(true);
         const [reviewsRes, summaryRes] = await Promise.all([
-          axios.get(`http://127.0.0.1:5000/analytics/${foodItem}`),
-          axios.post('http://127.0.0.1:5000/food-summary', { food: foodItem })
+          axios.get(`${BASE_URL}/${foodItem}`),
+          axios.post(`${BASE_URL}/food-summary`, { food: foodItem })
         ]);
         
         setNegativeReviews(reviewsRes.data.negative_reviews || []);

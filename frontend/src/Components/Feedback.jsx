@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import axios from 'axios';
 import MessMenu from './lib/const/MessMenu.json';
+import BASE_URL from '../config';
 
 const Feedback = () => {
   const [mealDay, setMealDay] = useState('');
@@ -68,7 +69,7 @@ const Feedback = () => {
       return;
     }
     try {
-      const res = await axios.post('http://127.0.0.1:5000/reviews', {
+      const res = await axios.post(`${BASE_URL}/reviews`, {
         day: mealDay,
         time: mealTime,
         food: mealItem,

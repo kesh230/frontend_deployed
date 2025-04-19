@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import axios from 'axios';
+import BASE_URL from '../config';
 
 const LeaveForm = () => {
   const [name, setName] = useState('');
@@ -18,7 +19,7 @@ const LeaveForm = () => {
     }
 
     try {
-      const res = await axios.post('http://127.0.0.1:5000/leave', {
+      const res = await axios.post(`${BASE_URL}/leave`, {
         name,
         roll_number: rollNumber,
         reason: leaveReason,

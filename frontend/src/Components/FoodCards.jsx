@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../config';
 
 const FoodCards = () => {
   const [analytics, setAnalytics] = useState({});
@@ -11,7 +12,7 @@ const FoodCards = () => {
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:5000/analytics', {
+        const res = await axios.get(`${BASE_URL}/analytics`, {
           headers: {
             "Content-Type": "application/json",
           }

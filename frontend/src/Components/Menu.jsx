@@ -10,6 +10,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import InfoIcon from '@mui/icons-material/Info';
+import BASE_URL from '../config';
 
 const Menu = () => {
   const colors = ['bg-purple-200', 'bg-[#ACC3FD]', 'bg-[#BAE5F5]', 'bg-[#CCEFBF]'];
@@ -23,7 +24,7 @@ const Menu = () => {
   const handleAnalyze = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:5000/analyze-menu', {
+      const response = await fetch(`${BASE_URL}/analyze-menu`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -86,7 +87,7 @@ const Menu = () => {
   const handleGenerateNewMenu = async () => {
     setGeneratingMenu(true);
     try {
-      const response = await fetch('http://127.0.0.1:5000/generate-menu', {
+      const response = await fetch(`${BASE_URL}/generate-menu`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

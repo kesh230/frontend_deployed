@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BASE_URL from '../config';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import axios from 'axios';
 
@@ -18,7 +19,7 @@ const Complaint = () => {
     }
 
     try {
-      const res = await axios.post('http://127.0.0.1:5000/complaint', {
+      const res = await axios.post(`${BASE_URL}/complaint`, {
         email,
         topic,
         subject,
