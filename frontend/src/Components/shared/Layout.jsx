@@ -11,6 +11,7 @@ import { BsFillChatSquareTextFill } from 'react-icons/bs';
 import Chatbot from './Chatbot';
 
 import StudentProfile from '../lib/const/StudentProfile.json';
+import BASE_URL from '../../config';
 
 const { name, hostel: hostelName } = StudentProfile[0];
 
@@ -36,7 +37,7 @@ const Layout = () => {
   useEffect(() => {
     const fetchFoodItems = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/analytics');
+        const response = await fetch(`${BASE_URL}/analytics`);
         const data = await response.json();
         const foods = Object.keys(data);
         setFoodItems(foods);
@@ -61,7 +62,7 @@ const Layout = () => {
         food: selectedFood || ''
       };
 
-      const response = await fetch('http://127.0.0.1:5000/agent', {
+      const response = await fetch(`${BASE_URL}/agent`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

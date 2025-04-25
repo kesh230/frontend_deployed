@@ -52,7 +52,7 @@ function Dashboard() {
       }
 
       try {
-        const response = await fetch('http://localhost:8080/api/v1/users/getUser', {
+        const response = await fetch(`${BASE_URL}/api/v1/users/getUser`, {
           headers: {
             'Authorization': `Bearer ${token}`, // Include token in Authorization header
           },

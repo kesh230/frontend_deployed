@@ -14,6 +14,7 @@ import {
   MoreVert as MoreIcon
 } from '@mui/icons-material';
 import ReactMarkdown from 'react-markdown';
+import BASE_URL from '../../config';
 
 const Chatbot = () => {
   const theme = useTheme();
@@ -50,7 +51,7 @@ const Chatbot = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:5000/chatbot', {
+      const response = await fetch(`${BASE_URL}/chatbot`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

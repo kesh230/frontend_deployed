@@ -85,7 +85,7 @@ function Attendance() {
       // Convert base64 to Blob and append to FormData
       const formData = base64ToFormData(capturedImage, regName);
       // POST to /api/register
-      const response = await axios.post("http://localhost:5000/api/register", formData);
+      const response = await axios.post(`${BASE_URL}/api/register`, formData);
       setRegMessage(response.data.message || "Registration successful.");
     } catch (error) {
       console.error(error);
@@ -114,7 +114,7 @@ function Attendance() {
     try {
       const formData = base64ToFormData(capturedImage);
       // POST to /api/recognize
-      const response = await axios.post("http://localhost:5000/api/recognize", formData);
+      const response = await axios.post(`${BASE_URL}/api/recognize`, formData);
       setRecMessage(response.data.message || "Recognition complete.");
       setRecognizedName(response.data.name || "");
       setConfidence(response.data.confidence || null);
