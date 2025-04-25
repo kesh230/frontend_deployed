@@ -28,7 +28,7 @@ const FoodDetails = () => {
         
         // Make API calls with proper error handling
         const [reviewsRes, summaryRes] = await Promise.all([
-          axios.get(`${BASE_URL}/${foodItem}`, axiosConfig),
+          axios.get(`${BASE_URL}/analytics/${foodItem}`, axiosConfig),
           axios.post(`${BASE_URL}/food-summary`, { food: foodItem }, axiosConfig)
         ]);
         
