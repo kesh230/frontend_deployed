@@ -10,24 +10,56 @@ const FoodDetails = () => {
   const [negativeReviews, setNegativeReviews] = useState([]);
   const [summary, setSummary] = useState('');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        setError(null);
+        
+        // Configure axios with proper headers
+        const axiosConfig = {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        };
+        
+        // Make API calls with proper error handling
         const [reviewsRes, summaryRes] = await Promise.all([
-          axios.get(`${BASE_URL}/${foodItem}`),
-          axios.post(`${BASE_URL}/food-summary`, { food: foodItem })
+          axios.get(`${BASE_URL}/${foodItem}`, axiosConfig),
+          axios.post(`${BASE_URL}/food-summary`, { food: foodItem }, axiosConfig)
         ]);
         
-        setNegativeReviews(reviewsRes.data.negative_reviews || []);
-        setSummary(summaryRes.data.summary || '');
+        // Check if data exists before setting state
+        if (reviewsRes.data && 'negative_reviews' in reviewsRes.data) {
+          setNegativeReviews(reviewsRes.data.negative_reviews);
+        } else {
+          setNegativeReviews([]);
+          console.warn('No negative reviews data found in API response');
+        }
+        
+        // Check for summary data
+        if (summaryRes.data && 'summary' in summaryRes.data) {
+          setSummary(summaryRes.data.summary);
+          console.log('Summary loaded:', summaryRes.data.summary.substring(0, 50) + '...');
+        } else {
+          setSummary('No summary available for this food item.');
+          console.warn('No summary data found in API response');
+        }
       } catch (error) {
-        console.error(error);
+        console.error('API Error:', error);
+        setError('Failed to load data. Please try again later.');
+        
+        // Set default values to prevent UI from breaking
+        setNegativeReviews([]);
+        setSummary('Unable to fetch summary at this time.');
       } finally {
         setLoading(false);
       }
     };
+    
     fetchData();
   }, [foodItem]);
 
@@ -35,6 +67,28 @@ const FoodDetails = () => {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-5xl mx-auto p-4 sm:p-6">
+        <div className="bg-red-50 p-4 rounded-lg text-red-700 flex items-center gap-3">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p className="font-medium">{error}</p>
+            <button 
+              onClick={() => navigate(-1)} 
+              className="text-sm text-red-600 hover:text-red-800 mt-2 underline"
+            >
+              Go back
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -93,53 +147,79 @@ const FoodDetails = () => {
               prose-h2:text-lg prose-h2:text-gray-700 prose-h2:mt-6 prose-h2:mb-3
               prose-p:text-gray-600 prose-p:my-2
               prose-strong:text-gray-700 prose-strong:font-medium
-              prose-ul:list-disc prose-ul:pl-4 prose-ul:my-2
-              prose-ol:list-decimal prose-ol:pl-4 prose-ol:my-2
+              prose-ul:pl-4 prose-ul:my-2
+              prose-ol:pl-4 prose-ol:my-2
               prose-li:my-1.5 prose-li:leading-relaxed">
-            <ReactMarkdown
-              components={{
-                h1: ({node, ...props}) => (
-                  <h1 className="text-xl text-blue-600 font-semibold mb-4 flex items-center gap-2" {...props} />
-                ),
-                h2: ({node, ...props}) => (
-                  <div className="bg-gray-50 p-3 rounded-lg">
-                    <h2 className="text-lg text-gray-700 font-semibold flex items-center gap-2" {...props} />
-                  </div>
-                ),
-                p: ({node, ...props}) => (
-                  <p className="text-gray-600 my-3 leading-relaxed" {...props} />
-                ),
-                ul: ({node, ...props}) => (
-                  <ul className="list-none space-y-2 my-4" {...props} />
-                ),
-                ol: ({node, ...props}) => (
-                  <ol className="list-none space-y-2 my-4" {...props} />
-                ),
-                li: ({node, ...props}) => (
-                  <li className="flex items-start gap-2 pl-2">
-                    <span className="text-blue-500 mt-1">•</span>
-                    <span className="flex-1" {...props} />
-                  </li>
-                ),
-                blockquote: ({node, ...props}) => (
-                  <blockquote className="border-l-4 border-blue-200 pl-4 my-4 bg-gradient-to-r from-blue-50 to-transparent p-4 rounded-r" {...props} />
-                ),
-                strong: ({node, ...props}) => (
-                  <strong className="font-semibold text-blue-700" {...props} />
-                ),
-                code: ({node, inline, ...props}) => (
-                  inline ? 
-                    <code className="bg-gray-50 rounded px-1.5 py-0.5 text-blue-600" {...props} /> :
-                    <pre className="bg-gray-50 rounded-lg p-4 my-4 overflow-x-auto">
-                      <code className="text-blue-600" {...props} />
-                    </pre>
-                )
-              }}
-            >
-              {summary}
-            </ReactMarkdown>
+            {!summary ? (
+              <div className="text-center py-8 text-gray-500">
+                <svg className="w-12 h-12 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <p>No summary available</p>
+              </div>
+            ) : (
+              <ReactMarkdown
+                components={{
+                  h1: ({node, children, ...props}) => (
+                    <h1 className="text-xl text-blue-600 font-semibold mb-4 flex items-center gap-2" {...props}>
+                      {children}
+                    </h1>
+                  ),
+                  h2: ({node, children, ...props}) => (
+                    <div className="bg-gray-50 p-3 rounded-lg">
+                      <h2 className="text-lg text-gray-700 font-semibold flex items-center gap-2" {...props}>
+                        {children}
+                      </h2>
+                    </div>
+                  ),
+                  p: ({node, children, ...props}) => (
+                    <p className="text-gray-600 my-3 leading-relaxed" {...props}>
+                      {children}
+                    </p>
+                  ),
+                  ul: ({node, children, ...props}) => (
+                    <ul className="list-disc space-y-2 my-4" {...props}>
+                      {children}
+                    </ul>
+                  ),
+                  ol: ({node, children, ...props}) => (
+                    <ol className="list-decimal space-y-2 my-4" {...props}>
+                      {children}
+                    </ol>
+                  ),
+                  li: ({node, children, ...props}) => (
+                    <li className="ml-4" {...props}>
+                      {children}
+                    </li>
+                  ),
+                  blockquote: ({node, children, ...props}) => (
+                    <blockquote className="border-l-4 border-blue-200 pl-4 my-4 bg-gradient-to-r from-blue-50 to-transparent p-4 rounded-r" {...props}>
+                      {children}
+                    </blockquote>
+                  ),
+                  strong: ({node, children, ...props}) => (
+                    <strong className="font-semibold text-blue-700" {...props}>
+                      {children}
+                    </strong>
+                  ),
+                  code: ({node, inline, children, ...props}) => (
+                    inline ? 
+                      <code className="bg-gray-50 rounded px-1.5 py-0.5 text-blue-600" {...props}>
+                        {children}
+                      </code> :
+                      <pre className="bg-gray-50 rounded-lg p-4 my-4 overflow-x-auto">
+                        <code className="text-blue-600" {...props}>
+                          {children}
+                        </code>
+                      </pre>
+                  )
+                }}
+              >
+                {summary}
+              </ReactMarkdown>
+            )}
           </div>
-
         </div>
 
         {/* Negative Reviews Section */}
@@ -180,4 +260,3 @@ const FoodDetails = () => {
 };
 
 export default FoodDetails;
-
